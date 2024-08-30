@@ -62,6 +62,10 @@ public class Person {
             throw new IllegalArgumentException("email is null or empty.");
         this.email = email;
     }
+
+    public String getSummary() {
+        return "Person ID: " + getId() + " Name: " + getFirstName() + " " + getLastName() + " Email: " + getEmail();
+    }
 }
 
 
