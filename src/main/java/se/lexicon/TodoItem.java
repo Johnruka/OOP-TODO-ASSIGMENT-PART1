@@ -41,7 +41,7 @@ public class TodoItem {
         this.title = title;
     }
 
-    public String getDescription() {
+    public String getTaskDescription() {
         return description;
     }
 
@@ -77,5 +77,16 @@ public class TodoItem {
 
     public boolean isOverdue() {
         return LocalDate.now().isAfter(deadLine);
+    }
+
+    public String getSummary() {
+        String todoItemSummary = "TodoItem ID: " + getId() + " Title: " + getTitle() + " Description: " + getTaskDescription() +
+                " Deadline: " + getDeadLine() + "\nCreator Details: ";
+        if(getCreator() != null) {
+            todoItemSummary += getCreator().getSummary() + "\n";
+        } else {
+            todoItemSummary += "Creator Detail is not present\n";
+        }
+        return todoItemSummary;
     }
 }

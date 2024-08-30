@@ -1,6 +1,8 @@
 package se.lexicon;
 
 
+import java.time.LocalDate;
+
 public class App {
     public static void main(String[] args) {
 
@@ -18,7 +20,14 @@ public class App {
 
         System.out.println("----------------------------------");
 
+        TodoItem todoItem1 = new TodoItem("Change Tires", "Preferrable to use MRF brand",
+                        LocalDate.of(2024, 2, 10), false, person1);
 
+        TodoItemTask todoItemTask1 = new TodoItemTask(todoItem1, person1);
+        String todoItemTaskDetails = todoItemTask1.getSummary();
+        System.out.println(todoItemTaskDetails);
+
+        System.out.println();
 
 
 

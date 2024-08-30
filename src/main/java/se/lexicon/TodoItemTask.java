@@ -50,4 +50,23 @@ public class TodoItemTask {
         this.assignee = assignee;
         this.assigned = (this.assignee != null);
     }
+
+    public String getSummary() {
+        String todoItemTaskSummary = "TodoItemTask ID: " + getId() + " Assigned: " + String.valueOf(isAssigned()).toUpperCase() + " " +
+                getTodoItem().getSummary();
+        if(isAssigned()) {
+            String isOverdue;
+            if(todoItem.isDone()) {
+                isOverdue = "Todo Item was FINISHED by the ";
+            } else if(todoItem.isOverdue()) {
+                isOverdue = "Todo Item is OVERDUE on the ";
+            } else {
+                isOverdue = "Todo Item is NOT OVERDUE and needs to be completed before deadline by the ";
+            }
+            todoItemTaskSummary += isOverdue + "Assigned Person: " + getAssignee().getSummary();
+        } else {
+            todoItemTaskSummary += "Not assigned to anyone";
+        }
+        return todoItemTaskSummary;
+    }
 }
